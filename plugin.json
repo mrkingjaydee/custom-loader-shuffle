@@ -1,0 +1,14 @@
+{
+  "name": "Custom Loader Shuffle",
+  "author": "MrKingJayDee",
+  "flags": [],
+  "api_version": 1,
+  "publish": {
+    "description": "Shuffle custom GIF loading animations between game launches. Requires CSS Loader and its Custom Loader theme.",
+    "tags": [
+      "customization",
+      "loading",
+      "gif"
+    ]
+  }
+}
