@@ -11,8 +11,8 @@ By **MrKingJayDee**. A free companion plugin for CSS Loader's Custom Loader them
 
 ## Installation
 
-1. Download the plugin ZIP from the repository's Releases page when published.
-2. In Decky, enable Developer Mode and install the ZIP using its developer menu. Uninstall any older test build first.
+1. Download the plugin ZIP from the repository's Releases page.
+2. In Decky, enable Developer Mode and install the ZIP using its developer menu. Uninstall any older build first.
 3. Add GIFs to `/home/deck/homebrew/themes/Custom Loader/images/Add Your GIFs Here/` and select one manually in Custom Loader.
 4. Open Custom Loader Shuffle and enable Automatic shuffle.
 
@@ -22,12 +22,31 @@ Automatic shuffle selects one GIF per game launch. Random mode avoids the previo
 
 ## Troubleshooting and limitations
 
-Keep a known-good ZIP. If a dependency is missing or unavailable, the plugin is designed to let the game launch rather than block indefinitely. A five-second launch wait limit is used; an already-issued CSS Loader request cannot be cancelled, so a delayed refresh can still complete later. Avoid changing Custom Loader settings concurrently with a launch. The backend makes a one-time configuration backup (`config_USER.shuffle-backup.json`) and uses atomic replacement. Uninstalling leaves the last selected GIF in Custom Loader. Do not blindly restore an old backup if other theme settings have changed. Symlinked directories and files and hardlinked files are not supported. The fixed theme path targets standard Steam Deck installations. Private Steam/Decky APIs may change. No GIFs are bundled; no analytics or external network requests are implemented in this plugin.
+- Ensure CSS Loader and the Custom Loader theme are installed and enabled.
+- If a dependency becomes unavailable, the plugin is designed to allow games to launch rather than block indefinitely.
+- A five-second launch timeout is included. A delayed CSS Loader refresh may still complete afterward.
+- Avoid changing Custom Loader settings while launching a game.
+- Your original Custom Loader configuration is automatically backed up. Restoring an older backup may overwrite subsequent theme settings.
+- Uninstalling the plugin retains your last selected GIF.
+- Standard Steam Deck installation paths are required. Symbolic links and hardlinked files are not supported.
+- Future SteamOS or Decky updates may affect compatibility.
+
+**Privacy:** No analytics, user tracking or external network requests are implemented. No GIFs are bundled with the plugin.
 
 ## Development
 
-`dist/index.js` is the readable frontend source and `main.py` is the Python backend. No compilation is required for the supplied ZIP. Run `node --check dist/index.js` and `python -m unittest discover -s tests -v` for local checks. The security-hardened candidate needs on-device regression testing before publication. See RELEASE-CHECKLIST.md.
+`dist/index.js` contains the frontend source code, and `main.py` contains the Python backend. No compilation is required for the supplied installation ZIP.
+
+For local testing, run `node --check dist/index.js` and `python -m unittest discover -s tests -v`.
 
 ## Credits
 
-Custom Loader Shuffle is an independent companion, not affiliated with Valve, Decky or CSS Loader. Thanks to the Decky Loader and CSS Loader contributors and Midnight, creator of the Custom Loader theme. This project does not bundle their themes or GIF assets. MIT license for original project code; see LICENSE. Third-party rights and official store packaging requirements must be confirmed before submission.
+Developed and maintained by **MrKingJayDee**.
+
+Special thanks to:
+- Midnight, creator of the Custom Loader theme.
+- The CSS Loader and Decky Loader developers and contributors.
+
+Custom Loader Shuffle is an independent companion plugin and is not officially affiliated with Valve, Decky Loader or CSS Loader.
+
+The original project code is released under the MIT License. See LICENSE for details.
